@@ -1,0 +1,117 @@
+$leftPane: (
+  "width": 300px,
+  "color": #818181,
+  "background-color":#E0EFEF
+);
+$rightPane: (
+  "width": 300px,
+  "color": #818181,
+  "background-color": #E0EFEF
+);
+
+
+.pane {
+  height: 100%;
+  position: fixed;
+  z-index: 1;
+  top: 64px;
+  background-color: map-get($leftPane, "background-color");
+  overflow-x: hidden;
+  transition: 0.5s;
+
+}
+
+.paneButton {
+  font-size:30px;
+  cursor:pointer;
+  position: fixed;
+  top: 100px;
+  transition: 0.5s;
+}
+
+.leftPaneOpen {
+  width: map-get($leftPane, "width");
+  left:0;
+}
+.leftPaneClosed {
+  width: 0;
+  left:0;
+}
+.buttonLeftPaneOpen {
+  left: map-get($leftPane, "width");
+}
+.buttonLeftPaneClosed {
+  left: 0;
+}
+.mainLeftPaneOpen {
+  margin-left: map-get($leftPane, "width");
+}
+.mainLeftPaneClosed {
+  margin-left: 0px; 
+}
+
+.rightPaneOpen {
+  width: map-get($rightPane, "width");
+  right: 0;
+}
+.rightPaneClosed {
+  width: 0;
+  right: 0;
+}
+.buttonRightPaneOpen {
+  right: map-get($rightPane, "width");
+}
+.buttonRightPaneClosed {
+  right: 0;
+}
+.mainRightPaneOpen {
+  margin-right: map-get($rightPane, "width");
+}
+.mainRightPaneClosed {
+  margin-right: 0px; 
+}
+
+.pane a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: map-get($leftPane, "color");
+  display: block;
+  transition: 0.3s;
+}
+
+.pane a:hover {
+  color: #f1f1f1;
+}
+
+.pane .closebtn {
+  position: absolute;
+  top: 0;
+  font-size: 36px;
+  margin-left: 50px;
+}
+.leftPane .closebtn {
+  right: 25px;
+}
+.rightPane .closebtn {
+  left: 25px;
+}
+
+#main {
+  transition: .5s;
+  padding: 16px;
+}
+
+mat-toolbar {
+  background-color: #80BDBD;
+}
+.menu-spacer {
+  flex: 1 1 auto;
+}
+
+
+
+@media screen and (max-height: 450px) {
+  .pane {padding-top: 15px;}
+  .pane a {font-size: 18px;}
+}

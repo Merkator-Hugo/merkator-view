@@ -1,0 +1,46 @@
+<!-- Top Navigation Toolbar -->
+<mat-toolbar>
+  <mat-toolbar-row>
+      <h1>{{title}}</h1>
+      <span class="menu-spacer"></span>
+      <div>
+          <a *ngFor="let item of navbarItems" mat-button [routerLink]="item.link">
+            {{item.label}}
+          </a>
+          <a *ngFor="let icon of navbarIcons" mat-button [routerLink]="icon.link">
+            <mat-icon> {{icon.name}} </mat-icon>
+          </a>
+      </div>
+      <div>{{today}}</div>
+    </mat-toolbar-row>
+</mat-toolbar>
+
+<!-- Left Slide Panel -->
+<button id="leftPaneButton" mat-icon-button class="paneButton" 
+    [ngClass]="{'buttonLeftPaneOpen': paneLeftOpen, 'buttonLeftPaneClosed': !paneLeftOpen}"
+    (click)="toggleLeftPane()">
+  <mat-icon *ngIf="paneLeftOpen">keyboard_arrow_left</mat-icon>
+  <mat-icon *ngIf="!paneLeftOpen">keyboard_arrow_right</mat-icon>
+</button>
+<div id="leftPane" class="pane" [ngClass]="{'leftPaneOpen': paneLeftOpen, 'leftPaneClosed': !paneLeftOpen}">
+  <merkator-demo></merkator-demo>
+</div>
+
+<!-- Right Slide Panel -->
+<button id="rightPaneButton" mat-icon-button class="paneButton" 
+    [ngClass]="{'buttonRightPaneOpen': paneRightOpen, 'buttonRightPaneClosed': !paneRightOpen}"
+    (click)="toggleRightPane()">
+  <mat-icon *ngIf="paneRightOpen">keyboard_arrow_right</mat-icon>
+  <mat-icon *ngIf="!paneRightOpen">keyboard_arrow_left</mat-icon>
+</button>
+<div id="rightPane" class="pane" [ngClass]="{'rightPaneOpen': paneRightOpen, 'rightPaneClosed': !paneRightOpen}">
+  <merkator-demo></merkator-demo>
+</div>
+
+<!-- Main Panel -->
+<div id="main" [ngClass]="{'mainLeftPaneOpen': paneLeftOpen, 'mainLeftPaneClosed': !paneLeftOpen, 'mainRightPaneOpen': paneRightOpen, 'mainRightPaneClosed': !paneRightOpen}">
+  <router-outlet>
+  </router-outlet>
+</div>
+
+

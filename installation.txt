@@ -1,0 +1,24 @@
+ng new merkator-view --create-application=false
+cd merkator-view
+
+ng generate application merkator-view
+--> Routing: Yes
+--> stysheet-type: SCSS
+
+npm install ../merkator-demo/dist/merkator-demo/merkator-demo-0.0.1.tgz
+npm install ../merkator-grid/dist/merkator-grid/merkator-grid-0.0.1.tgz
+
+ng add @angular/material
+--> prebuilt theme: Indigo/Pink
+--> HammerJS gesture recognition: Yes
+--> browser animations: Yes
+
+ng generate service state
+--> move to src/state
+
+ng generate component map --project=merkator-view
+npm install ../../MerkatorMap/merkator-map/dist/merkator-map/merkator-map-0.0.1.tgz
+npm install ol
+npm install --save @types/ol
+npm install proj4
+npm install --save @types/proj4
